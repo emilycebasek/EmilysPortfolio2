@@ -1,0 +1,121 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ATM
+{
+    class Machine
+    {
+        private int numOne;
+        private int numFive;
+        private int numTen;
+        private int numTwenty;
+        private int numFifty;
+        private int numHundred;
+
+        public Machine()
+        {
+            this.numOne = 10;
+            this.numFive = 10;
+            this.numTen = 10;
+            this.numTwenty = 10;
+            this.numFifty = 10;
+            this.numHundred = 10;
+        }
+
+        public String ShowTotal()
+        {
+             return "Machine Balance:\n$100 - " + numHundred + "\n$50 - " + numFifty + "\n$20 -"
+                + numTwenty + "\n$10 - " + numTen + "\n$5 - " + numFive + "\n$1 - " + numOne;
+        }
+
+        public int getTotal()
+        {
+            int total = 0;
+            total += (NumOne + NumFive + NumTen + NumTwenty + NumFifty + NumHundred);
+            return total;
+        }
+        public String Withdrawl(int amount)
+        {
+            int originalAmount = amount;
+
+            if (getTotal() < amount)
+            {
+                return "Failure: Insufficent Funds";
+            }
+            else
+            {
+                if (amount > 100)
+                {
+                    NumHundred -= (amount / 100);
+                    amount -= (amount % 100);
+                }
+                if (amount > 50)
+                {
+                    NumHundred -= (amount / 50);
+                    amount -= (amount % 50);
+                }
+                if (amount > 20)
+                {
+                    NumHundred -= (amount / 20);
+                    amount -= (amount % 20);
+                }
+                if (amount > 10)
+                {
+                    NumHundred -= (amount / 10);
+                    amount -= (amount % 10);
+                }
+                if (amount > 5)
+                {
+                    NumHundred -= (amount / 5);
+                    amount -= (amount % 5);
+                }
+                if (amount > 1)
+                {
+                    NumHundred -= (amount / 1);
+                    amount -= (amount % 1);
+                }
+
+                return "Success: Dispensed $" + originalAmount;
+            }
+        }
+
+        public int NumOne
+        {
+            get { return numOne; }
+            set { numOne = value; }
+        }
+
+        public int NumFive
+        {
+            get { return numFive; }
+            set { numFive = value; }
+        }
+
+        public int NumTen
+        {
+            get { return numTen; }
+            set { numTen = value; }
+        }
+
+        public int NumTwenty
+        {
+            get { return numTwenty; }
+            set { numTwenty = value; }
+        }
+
+        public int NumFifty
+        {
+            get { return numFifty; }
+            set { numFifty = value; }
+        }
+
+        public int NumHundred
+        {
+            get { return numHundred; }
+            set { numHundred = value; }
+        }
+    }
+}

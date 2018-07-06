@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="Scripts/bootstrap.css" rel="stylesheet" />
+    <script src="Scripts/bootstrap.js"></script>
+    <script src="Scripts/vue.js"></script>
+    <link rel="stylesheet" type="text/css" href="StyleSheet.css">
+    <meta charset="utf-8" />
+    <div class="row"></div>
+    <div class="col" style="background-color:deepskyblue;font-size:48px">&nbsp;</div>
+    <div class="page-header">
+        <h1>Unit Conversions</h1>
+    </div>
+    <title></title>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div id ="col1" class="col-sm-2">&nbsp;</div>
+            <div id ="col2" class="col-sm-2">&nbsp;</div>
+            <div id ="col3" class="col-sm-2">&nbsp;</div>
+            <div id ="col4" class="col-sm-2">&nbsp;</div>
+            <div id ="col5" class="col-sm-2">&nbsp;</div>
+            <div id ="col6" class="col-sm-2">&nbsp;</div>
+        </div>
+        <div class="row">
+            <div id="tabs" class="col">
+                <div class="col-sm-4">
+                    <button button type="button" class="btn btn-other btn-block" v-on:click="home">Home</button>
+                    <button button type="button" class="btn btn-other btn-block" v-on:click="conv1">BillyConverter</button>
+                </div>
+                <div class="col-sm-4">
+                    <button button type="button" class="btn btn-other btn-block" v-on:click="conv2">Human Years to Dog Years</button>
+                    <button button type="button" class="btn btn-other btn-block" v-on:click="conv3">Celsius to Kelvin</button>
+                </div>
+                <div class="col-sm-4">
+                    <button button type="button" class="btn btn-other btn-block" v-on:click="conv4">ThomasConverter</button>
+                    <button button type="button" class="btn btn-other btn-block" v-on:click="conv5">24 Hour Time to Military Time</button>
+                </div>
+
+            </div>
+        </div>
+</body>
+</html>
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            inputValue: "",
+            outputValue: ""
+        },
+        methods: {
+            conversion : function () {
+
+            }
+        }
+    })
+    var tabs = new Vue({
+        el: '#tabs',
+        data: {
+
+        },
+        methods: {
+            home: function () {
+                window.location = '/index.html'
+            },
+            conv1: function () {
+                window.location = '/billysconversion.html'
+            },
+            conv2: function () {
+                window.location = '/emilysconversion.html'
+            },
+            conv3: function () {
+                window.location = '/kevinsconversion.html'
+            },
+            conv4: function () {
+                window.location = '/thomasconversion.html'
+            },
+            conv5: function () {
+                window.location = '/zachsconversion.html'
+            }
+        }
+    })
+</script>

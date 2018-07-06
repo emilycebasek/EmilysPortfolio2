@@ -1,0 +1,78 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ATM
+{
+    class MachineRunner
+    {
+        static void Main(string[] args)
+        {
+            Machine machine = new Machine();
+            Console.WriteLine("What would you like to do? ");
+            String command = Console.ReadLine();
+
+            while (!command.Equals("Q"))
+            {
+                if (command.Equals("R"))
+                {
+                    machine = new Machine();
+                    Console.WriteLine(machine.ShowTotal());
+
+                }
+                else if (command.IndexOf("W") != -1)
+                {
+                    String num = command.Substring(command.IndexOf("$") + 1);
+                    int amount = Int32.Parse(num);
+                    machine.Withdrawl(amount);
+                }
+                else if (command.IndexOf("I") != -1)
+                {
+                    String afterI = command.Substring(command.IndexOf("I"));
+                    String[] amounts = afterI.Split(' ');
+                    foreach(String amount in amounts)
+                    {
+                        if (amount.Equals("$1"))
+                        {
+                            Console.WriteLine("$1 - " + machine.NumOne);
+                        }
+                        else if (amount.Equals("$5"))
+                        {
+                            Console.WriteLine("$5 - " + machine.NumFive);
+
+                        }
+                        else if (amount.Equals("$10"))
+                        {
+                            Console.WriteLine("$10 - " + machine.NumTen);
+
+                        }
+                        else if (amount.Equals("$20"))
+                        {
+                            Console.WriteLine("$20 - " + machine.NumTwenty);
+
+                        }
+                        else if (amount.Equals("$50"))
+                        {
+                            Console.WriteLine("$50 - " + machine.NumFifty);
+
+                        }
+                        else if (amount.Equals("$100"))
+                        {
+                            Console.WriteLine("$100 - " + machine.NumHundred);
+
+                        }
+                    }
+
+                }
+                else
+                {
+                    Console.WriteLine("Invalid Input");
+                }
+                Console.WriteLine("\nWhat would you like to do? ");
+                command = Console.ReadLine();
+            }
+        }
+    }
+}
